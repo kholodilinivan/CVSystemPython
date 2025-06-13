@@ -25,7 +25,7 @@
 #### Unity Project:UnityProject/Assets/Scenes/CVSystem
 #### Python Project:Calib_basic/Distance
 #### Text explanations in English -<ins>[Tutorial Calib Basic.pdf](https://github.com/user-attachments/files/20650140/Tutorial.Calib.Basic.pdf)<ins>
-#### Video explanations in English -
+#### Video explanations in English -<ins>[https://youtu.be/BLRZRvtphqo](https://youtu.be/BLRZRvtphqo)<ins>
 ![220335244-ba63f8f5-dcd6-43b3-8822-d94efde74ed5](https://github.com/user-attachments/assets/ba2c75e0-41ff-4d7e-9a36-be95abb3e420)
 ![220335229-0731a7aa-17e8-4c1e-8a16-901374a0ac53](https://github.com/user-attachments/assets/6c224908-4eea-46cc-b41c-9def527e310e)
 #### *Tutorial Basic*      

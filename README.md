@@ -32,5 +32,5 @@
 #### Unity Project:UnityProject/Assets/Scenes/CVSystem
 #### Python Project:Basic/laser/run_system
 #### Text explanations in English - <ins>[Tutorial Basic.pdf](https://github.com/user-attachments/files/20654088/Tutorial.Basic.pdf)<ins>
-#### Video explanations in English -<ins>[https://youtu.be/2icYi0h_6Qg](https://youtu.be/2icYi0h_6Qg)<ins>
+#### Video explanations in English -<ins>[https://youtu.be/g59idQBeq5Y](https://youtu.be/g59idQBeq5Y)<ins>
 ![图片1](https://github.com/user-attachments/assets/b679f919-5282-4c62-83e9-d3538ca35c26)

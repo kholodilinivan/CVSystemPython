@@ -63,9 +63,9 @@ def main(working_dir: str,
 
 if __name__ == "__main__":
     # typer.run(main)
-    working_dir = "test_images/sim"
+    working_dir = "test_images/real"
     chessboard_size_row = 9
     chessboard_size_column = 6
-    square_size = 116
-    camera_name = "fisheye_2"
+    square_size = 17
+    camera_name = "b_"
     main(working_dir, chessboard_size_row, chessboard_size_column, camera_name=camera_name)

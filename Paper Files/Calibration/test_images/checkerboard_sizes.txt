@@ -1,4 +1,4 @@
  Name              #squares_x    #squares_x   size[mm]
 ------------------------------------------------------
-Fisheye1_#.jpg         6              9          26
+Fisheye1_#.jpg         6              9          17
 Fisheye2_#.jpg         6              9         116.0

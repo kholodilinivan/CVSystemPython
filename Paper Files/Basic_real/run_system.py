@@ -3,8 +3,8 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 
-from ocam_model_real_matlab import get_ocam_model # camera model - matlab data
-# from ocam_model_real_python import get_ocam_model # camera model - python data
+# from ocam_model_real_matlab import get_ocam_model # camera model - matlab data
+from ocam_model_real_python import get_ocam_model # camera model - python data
 
 from las_segm import las_segm # Laser stripe segmentation - for sim function
 from mapping import mapping # 3D coordinate mapping
@@ -15,7 +15,7 @@ from laser_debug import print_laser_bounds # Laser boundary debugging
 image_path = "image.jpg" # Enter the image path
 x_angle = 0 # Laser plane X direction angle (degrees)
 y_angle = 0 # Laser plane Y direction angle (degrees)
-las_dist = 210 # Distance from laser to reference plane (mm)
+las_dist = 254 # Distance from laser to reference plane (mm)
 
 CVsyst_x=0 # Camera coordinate system X origin
 CVsyst_y=0 # Camera coordinate system Y origin
@@ -35,9 +35,9 @@ for regions selection Run file: get_pixel_data.py and click mouse to select Lase
 next write it to the code below as: [column pixels], [row pixels]
 if laser is located verticaly: vertical = 1, if laser is horisontal: vertical = 0
 '''
-C_left = mock_cube_dist(img_bin, x_angle, y_angle, las_dist, ocam_model, [460, 534], [673, 708], vertical = 1, name="Left Cube")
-C_Up = mock_cube_dist(img_bin, x_angle, y_angle, las_dist, ocam_model, [209, 240], [946, 1017], vertical = 0, name="Up Cube")
-C_Right = mock_cube_dist(img_bin, x_angle, y_angle, las_dist, ocam_model, [403, 455], [1162, 1199], vertical = 1, name="Right Cube")
+C_left = -mock_cube_dist(img_bin, x_angle, y_angle, las_dist, ocam_model, [451, 472], [805, 850], vertical = 0, name="Left Cube")
+C_Up = -mock_cube_dist(img_bin, x_angle, y_angle, las_dist, ocam_model, [333, 359], [945, 978], vertical = 0, name="Up Cube")
+C_Right = -mock_cube_dist(img_bin, x_angle, y_angle, las_dist, ocam_model, [541, 582], [1085, 1106], vertical = 1, name="Right Cube")
 
 #=== Print the estimated result ===
 print(f"Left Cube Distance Estimate: {C_left:.2f} mm")
@@ -46,11 +46,11 @@ print(f"Right Cube Distance Estimate: {C_Right:.2f} mm")
 
 #=== Visual image (saved and not displayed)===
 plt.figure(figsize=(8, 6))
-plt.gca().set_xlim([-250, 200]) # set limits if image is noisy (show only working region)
+plt.gca().set_xlim([-250, 350]) # set limits if image is noisy (show only working region)
 plt.gca().set_ylim([0, 300]) # set limits if image is noisy (show only working region)
 
-plt.scatter(x1, y1, s=3, c='b', label='Laser Intersections') # for matlab calib
-# plt.scatter(-x1, -y1, s=3, c='b', label='Laser Intersections') # for python calib
+# plt.scatter(x1, y1, s=3, c='b', label='Laser Intersections') # for matlab calib
+plt.scatter(-x1, -y1, s=3, c='b', label='Laser Intersections') # for python calib
 
 plt.scatter([CVsyst_x], [-CVsyst_y], c='r', marker='*', s=100, label='Camera')
 plt.title("3D Mapping of Laser Line Intersections")
@@ -63,9 +63,9 @@ plt.savefig("mapping_result.png")
 plt.close()
 
 #=== Error analysis (based on reference true value) ===
-real_left = -200.00
-real_up = 250.00
-real_right = 150.00
+real_left = 100.00
+real_up = 200.00
+real_right = 110.00
 
 err_left = abs(real_left - C_left)
 err_up = abs(real_up - C_Up)

@@ -13,8 +13,8 @@ from laser_debug import print_laser_bounds # Laser boundary debugging
 
 # === Configuration parameters ===
 image_path = "image.jpg" # Enter the image path
-x_angle = 1.5 # Laser plane X direction angle (degrees)
-y_angle = -2.5 # Laser plane Y direction angle (degrees)
+x_angle = 0 # Laser plane X direction angle (degrees)
+y_angle = 0 # Laser plane Y direction angle (degrees)
 las_dist = 950 # Distance from laser to reference plane (mm)
 
 CVsyst_x=0 # Camera coordinate system X origin
@@ -35,9 +35,9 @@ for regions selection Run file: get_pixel_data.py and click mouse to select Lase
 next write it to the code below as: [column pixels], [row pixels]
 if laser is located verticaly: vertical = 1, if laser is horisontal: vertical = 0
 '''
-C_left = mock_cube_dist(img_bin, x_angle, y_angle, las_dist, ocam_model, [634, 867], [504, 550], vertical = 1, name="Left Cube")
-C_Up = mock_cube_dist(img_bin, x_angle, y_angle, las_dist, ocam_model, [326, 353], [687, 843], vertical = 0, name="Up Cube")
-C_Right = mock_cube_dist(img_bin, x_angle, y_angle, las_dist, ocam_model, [488, 613], [1171, 1260], vertical = 1, name="Right Cube")
+C_left = mock_cube_dist(img_bin, x_angle, y_angle, las_dist, ocam_model, [601, 852], [529, 533], vertical = 1, name="Left Cube")
+C_Up = mock_cube_dist(img_bin, x_angle, y_angle, las_dist, ocam_model, [372, 385], [787, 999], vertical = 0, name="Up Cube")
+C_Right = mock_cube_dist(img_bin, x_angle, y_angle, las_dist, ocam_model, [501, 881], [1238, 1305], vertical = 1, name="Right Cube")
 
 #=== Print the estimated result ===
 print(f"Left Cube Distance Estimate: {C_left:.2f} mm")
@@ -54,7 +54,7 @@ plt.scatter(x1, y1, s=3, c='b', label='Laser Intersections') # use for matlab ca
 
 plt.scatter([CVsyst_x], [-CVsyst_y], c='r', marker='*', s=100, label='Camera')
 plt.title("3D Mapping of Laser Line Intersections")
-plt.xlabel("X (mm)")
+plt.xlabel("X (mm)") 
 plt.ylabel("Y (mm)")
 plt.grid(True)
 plt.legend()
@@ -63,9 +63,9 @@ plt.savefig("mapping_result.png")
 plt.close()
 
 #=== Error analysis (based on reference true value) ===
-real_left = -922.00
-real_up = 1799.00
-real_right = 521.00
+real_left = -882.00
+real_up = 1365.00
+real_right = 625.00
 
 err_left = abs(real_left - C_left)
 err_up = abs(real_up - C_Up)

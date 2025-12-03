@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 # Load image
-image = cv2.imread('image1_.jpg')
+image = cv2.imread('image.jpg')
 image_display = image.copy()
 selected_points = []
 
